@@ -54,5 +54,6 @@ export default function (block: HTMLImageElement) {
     message: getChildNodeText(block, blockRows.message),
   };
 
+  block.innerHTML = '';
   render(template(args), block);
 }
