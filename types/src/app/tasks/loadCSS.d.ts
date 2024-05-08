@@ -3,4 +3,4 @@
  * @param endpoint - The endpoint of the CSS file.
  * @returns Promise<boolean>
  */
-export declare function loadCSS(endpoint: string): Promise<unknown>;
+export declare function loadCSS(endpoint: string): Promise<void>;
