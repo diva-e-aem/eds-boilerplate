@@ -1,4 +1,4 @@
-import { toClassName } from './toClassName';
+import { toClassName } from 'Utils/toClassName';
 
 describe('toClassName', () => {
   test('converts a string to lowercase and replaces non-alphanumeric characters with dashes', () => {

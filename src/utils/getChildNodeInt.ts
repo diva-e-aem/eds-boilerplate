@@ -10,6 +10,6 @@ import { getChildNodeText } from 'Utils/getChildNodeText.ts';
  * @returns The integer value of the text content of the specified child node,
  * or 0 if it cannot be converted to an integer.
  */
-export const getChildNodeInt = (element: HTMLElement, index: number): number => {
+export function getChildNodeInt(element: HTMLElement, index: number): number {
   return parseInt(getChildNodeText(element, index), 10) || 0;
-};
+}

@@ -1,4 +1,4 @@
-import { toCamelCase } from './toCamelCase';
+import { toCamelCase } from 'Utils/toCamelCase';
 
 describe('toCamelCase', () => {
   test('converts kebab-case to camelCase', () => {

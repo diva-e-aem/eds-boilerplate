@@ -1,4 +1,4 @@
-import { wrap } from './wrap';
+import { wrap } from 'Utils/wrap';
 
 describe('wrap', () => {
   let parentElement: HTMLElement;

@@ -1,4 +1,4 @@
-import { createOptimizedPicture, CreateOptimizedPictureArgs } from './createOptimizedPicture';
+import { createOptimizedPicture, CreateOptimizedPictureArgs } from 'Utils/createOptimizedPicture';
 
 describe('createOptimizedPicture', () => {
   const baseArgs: CreateOptimizedPictureArgs = {

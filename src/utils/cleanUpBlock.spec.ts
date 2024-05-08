@@ -1,4 +1,4 @@
-import { cleanUpBlock } from './cleanUpBlock';
+import { cleanUpBlock } from 'Utils/cleanUpBlock';
 
 describe('cleanUpBlock', () => {
   let block: HTMLDivElement;

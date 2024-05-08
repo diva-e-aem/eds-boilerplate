@@ -1,5 +1,5 @@
-import { addClasses } from './addClasses';
-import * as toClassNameModule from './toClassName';
+import { addClasses } from 'Utils/addClasses';
+import * as toClassNameModule from 'Utils/toClassName';
 
 describe('addClasses', () => {
   let element: HTMLElement;
