@@ -4,5 +4,5 @@ Fix #<gh-issue-id>
 
 Test URLs:
 
-- Before: https://develop--eds-editorial--ifahrentholz.hlx.live/
-- After: https://<branch>--eds-editorial--ifahrentholz.hlx.live/
+- Before: https://develop--eds-boilerplate--diva-e.hlx.live/
+- After: https://<branch>--eds-boilerplate--diva-e.hlx.page/
