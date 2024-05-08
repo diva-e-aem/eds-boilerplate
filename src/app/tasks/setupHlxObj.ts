@@ -1,3 +1,5 @@
+import { DebuggerService } from '@kluntje/services';
+
 export default function setupHlxObj(mainScriptPath: string = '/dist/main/main.js') {
   window.hlx = window.hlx || {};
   window.hlx.RUM_MASK_URL = 'full';
@@ -10,7 +12,7 @@ export default function setupHlxObj(mainScriptPath: string = '/dist/main/main.js
       [window.hlx.codeBasePath] = new URL(scriptEl.src).pathname.split(mainScriptPath);
     } catch (error) {
       // eslint-disable-next-line no-console
-      console.log('setupHlxObj', error);
+      DebuggerService.log('setupHlxObj: Could not set codeBasePath.', error);
     }
   }
 }

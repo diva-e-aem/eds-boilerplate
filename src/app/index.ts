@@ -1,7 +1,6 @@
 import { decorateTemplateAndTheme } from './tasks/decorateTemplateAndTheme';
 import { decorateButtons } from './tasks/decorateButtons';
 import { setDocLanguage } from './tasks/setDocLanguage';
-import { waitForLCP } from './tasks/waitForLCP';
 import { loadFonts } from './tasks/loadFonts';
 import { initSampleRUM } from './tasks/initSampleRUM';
 import { DebuggerService } from '@kluntje/services';
@@ -12,6 +11,7 @@ import { loadBlocks } from './tasks/loadBlocks';
 import { transformSection } from './tasks/transformSections';
 import { decorateBlocks } from './tasks/decorateBlocks';
 import { sampleRUM } from './tasks/sampleRUM';
+import { waitForLCP } from './tasks/waitForLCP.ts';
 
 class HLX {
   private beforeEagerCallbacks: Array<() => Promise<void>> = [];
@@ -130,28 +130,26 @@ class HLX {
 
   private async loadEagerPromise(): Promise<void> {
     const loadEagerTask: Promise<void> = new Promise(async (resolve) => {
-      const main = document.querySelector('main') as HTMLElement;
-      decorateButtons(main);
-      transformSection(main);
-      decorateBlocks(main);
-      setTimeout(() => {
-        document.body.classList.add('show');
-        resolve();
-      }, 100);
-
-      await waitForLCP();
-
       try {
+        const main = document.querySelector('main') as HTMLElement;
+        decorateButtons(main);
+        transformSection(main);
+        decorateBlocks(main);
+        setTimeout(() => {
+          document.body.classList.add('show');
+          resolve();
+        }, 100);
+
         /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
         if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
           await loadFonts();
         }
-      } catch (e) {
-        // do nothing
+      } catch (error) {
+        DebuggerService.error('index: could not load fonts', error);
       }
     });
 
-    await Promise.all([...this.loadEagerCallbacks.map((cb) => cb()), loadEagerTask]);
+    await Promise.all([...this.loadEagerCallbacks.map((cb) => cb()), loadEagerTask, waitForLCP()]);
   }
 
   private async beforeLoadLazyPromise(): Promise<void> {
@@ -189,7 +187,7 @@ class HLX {
         // @ts-ignore
         sampleRUM.observe(main.querySelectorAll('picture > img'));
       } catch (error) {
-        DebuggerService.error('Load lazy Task: ', error);
+        DebuggerService.error('LoadLazyTask: ', error);
       }
       resolve();
     });

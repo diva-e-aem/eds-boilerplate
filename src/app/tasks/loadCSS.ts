@@ -5,7 +5,7 @@ import { getUrlForEndpoint } from '../utils/getUrlForEndpoint';
  * @param endpoint - The endpoint of the CSS file.
  * @returns Promise<boolean>
  */
-export async function loadCSS(endpoint: string) {
+export function loadCSS(endpoint: string): Promise<void> {
   return new Promise((resolve, reject) => {
     const { href } = getUrlForEndpoint(endpoint);
 
@@ -13,11 +13,11 @@ export async function loadCSS(endpoint: string) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
       link.href = href;
-      link.onload = resolve;
+      link.onload = () => resolve();
       link.onerror = reject;
       document.head.append(link);
     } else {
-      resolve(true);
+      resolve();
     }
   });
 }

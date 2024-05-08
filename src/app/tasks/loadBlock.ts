@@ -17,9 +17,12 @@ export async function loadBlock(section: HTMLElement) {
     return;
   }
 
+  const blockPromises: Promise<[void, void]>[] = [];
+
   for (const block of sectionsBlocks) {
-    Promise.all([loadBlockModules(block), loadBlockStyles(block)]);
+    blockPromises.push(Promise.all([loadBlockModules(block), loadBlockStyles(block)]));
   }
 
+  await Promise.all(blockPromises);
   showSection(section);
 }
