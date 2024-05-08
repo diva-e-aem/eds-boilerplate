@@ -1,0 +1,4 @@
+src/styles/sass/base/*.scss
+src/styles/sass/components/*.scss
+src/styles/sass/layout/*.scss
+src/styles/sass/libs/*.scss
