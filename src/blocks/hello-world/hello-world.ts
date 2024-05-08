@@ -1,12 +1,12 @@
 import { html, render, TemplateResult } from 'lit';
-import { getChildNodeText } from '../../utils/getChildNodeText';
+import { getChildNodeText } from 'Utils/getChildNodeText.ts';
 
 /**
  * These are the imported components for the block.
  * They need to be imported so that Vite will bundle them as chunks that can be loaded.
  * Otherwise, the component will not be loaded with the block.
  */
-import './../../components/icon/icon.ts';
+import 'Components/icon/icon.ts';
 
 /**
  * These are the imported styles for the block.
@@ -14,7 +14,8 @@ import './../../components/icon/icon.ts';
  * Otherwise, the styles would not be built into the dist directory.
  */
 import './hello-world.scss';
-import { renderIcon } from '../../components/icon/icon.template.ts';
+import { renderIcon } from 'Components/icon/icon.template.ts';
+import { cleanUpBlock } from 'Utils/cleanUpBlock.ts';
 
 interface HelloWorldArgs {
   message: string;
@@ -51,9 +52,11 @@ const template = ({ message }: HelloWorldArgs): TemplateResult => {
  */
 export default function (block: HTMLImageElement) {
   const args = {
+    // Gets the
     message: getChildNodeText(block, blockRows.message),
   };
 
-  block.innerHTML = '';
+  // Removes the generative content of the eds block
+  cleanUpBlock(block);
   render(template(args), block);
 }
