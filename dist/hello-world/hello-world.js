@@ -1,0 +1,2 @@
+import{x as s,j as c}from"../__chunks__/icon.D2O9BML4.js";const n=(o,e)=>s`<icon-component class="icon-component${""}" name="${o}"></icon-component>`,l=({message:o})=>s`<div class="container"><div class="hello-world"><h1>Hello, World!</h1><p>Welcome to your first EDS Block. ${n("rocket-lunch")}</p><p class="message">This message comes from your block: ${o}</p></div></div>`;function r(o){const e={message:getChildNodeText(o,0)};c(l(e),o)}export{r as default};
+//# sourceMappingURL=hello-world.js.map
