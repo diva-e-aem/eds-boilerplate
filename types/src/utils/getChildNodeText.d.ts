@@ -5,4 +5,4 @@
  * @returns {string} The text content of the child node, trimmed of leading and trailing whitespace,
  * or an empty string if the child node or its text content is unavailable.
  */
-declare const getChildNodeText: (element: HTMLElement, index: number) => string;
+export declare const getChildNodeText: (element: HTMLElement, index: number) => string;

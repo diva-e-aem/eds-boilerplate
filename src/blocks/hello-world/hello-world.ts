@@ -1,4 +1,5 @@
 import { html, render, TemplateResult } from 'lit';
+import { getChildNodeText } from '../../utils/getChildNodeText';
 
 /**
  * These are the imported components for the block.
