@@ -1,0 +1,2 @@
+# use unix line ending for text files
+* text=auto eol=lf
