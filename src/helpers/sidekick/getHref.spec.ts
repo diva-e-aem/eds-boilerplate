@@ -2,11 +2,11 @@ import { getHref } from './getHref';
 import * as isSidekickLibraryActive from './isSidekickLibraryActive';
 
 describe('getHref', () => {
-  let previousWindow = window;
+  const previousWindow = window;
 
   afterEach(() => {
     jest.restoreAllMocks();
-    window = previousWindow;
+    window = previousWindow; // eslint-disable-line no-global-assign
   });
 
   it('returns window location href when Sidekick Library is not active', () => {

@@ -16,23 +16,27 @@ import { isSidekickLibraryActive } from 'Helpers/sidekick//isSidekickLibraryActi
 class SidekickLibraryId extends Directive {
   private part?: AttributePart;
 
+  /* eslint-disable */
   /**
    * Update method called when the directive is updated.
    * @param {AttributePart} part - The attribute part to be updated.
    * @param {unknown[]} props - Array of properties passed to the directive.
    * @returns {typeof nothing} - Returns the result of the render function.
    */
+  /* eslint-enable */
   update(part: AttributePart, props: unknown[]): typeof nothing {
     this.part = part;
-    const SidekickElement = props[0] as SidekickElement;
-    return this.render(SidekickElement);
+    const sidekickElement = props[0] as SidekickElement;
+    return this.render(sidekickElement);
   }
 
+  /* eslint-disable */
   /**
    * Render method for managing Sidekick Library attributes.
    * @param {SidekickElement} sidekickElement - Information about the Sidekick Library.
    * @returns {typeof nothing} - Returns the result of the render operation.
    */
+  /* eslint-enable */
   render(sidekickElement: SidekickElement): typeof nothing {
     if (!isSidekickLibraryActive()) return nothing;
 

@@ -1,11 +1,11 @@
 import { isSidekickLibraryActive } from './isSidekickLibraryActive';
 
 describe('isSidekickLibraryActive', () => {
-  let previousWindow = window;
+  const previousWindow = window;
 
   afterEach(() => {
     jest.restoreAllMocks();
-    window = previousWindow;
+    window = previousWindow; // eslint-disable-line no-global-assign
   });
 
   it('should return false if #main element does not exist', () => {

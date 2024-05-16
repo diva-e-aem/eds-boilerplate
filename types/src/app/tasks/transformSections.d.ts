@@ -2,6 +2,6 @@
  * This function is used to transform the sections of the main element.
  * It adjusts the markup of each section by calling the 'adjustMarkup' function.
  * It processes the metadata of each section by calling the 'processSectionMetaData' function.
- * @param main - The main element to transform.
+ * @param {HTMLElement} main - The main element to transform.
  */
 export declare function transformSection(main: HTMLElement): void;

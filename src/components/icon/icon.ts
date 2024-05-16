@@ -12,7 +12,7 @@ const modules = import.meta.glob('/public/icons/*.svg', { as: 'raw' });
 @customElement('icon-component')
 export class Icon extends LitElement {
   @property({ type: String })
-  name: string = '';
+  name: string = ''; // eslint-disable-line indent
 
   async getSvg(name: string) {
     const key = modules[`${ICONS_PATH}/${name}.svg`];

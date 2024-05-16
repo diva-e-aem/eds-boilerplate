@@ -1,7 +1,7 @@
 /**
  * Get the URL for an endpoint.
- * @param endpoint - The endpoint.
- * @returns URL
+ * @param {string} endpoint - The endpoint.
+ * @returns {URL}
  * @example
  * const url = getUrlForEndpoint('block1/block1.css');
  * console.log(url);

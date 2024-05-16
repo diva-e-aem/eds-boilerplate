@@ -1,11 +1,12 @@
+import { isSidekickLibraryActive } from 'Helpers/sidekick/isSidekickLibraryActive';
+import { DebuggerService } from '@kluntje/services';
+
 import { decorateTemplateAndTheme } from './tasks/decorateTemplateAndTheme';
 import { decorateButtons } from './tasks/decorateButtons';
 import { setDocLanguage } from './tasks/setDocLanguage';
 import { loadFonts } from './tasks/loadFonts';
 import { initSampleRUM } from './tasks/initSampleRUM';
-import { DebuggerService } from '@kluntje/services';
 import { loadCSS } from './tasks/loadCSS';
-import { isSidekickLibraryActive } from 'Helpers/sidekick/isSidekickLibraryActive';
 import { config } from '../../config';
 import { loadBlocks } from './tasks/loadBlocks';
 import { transformSection } from './tasks/transformSections';

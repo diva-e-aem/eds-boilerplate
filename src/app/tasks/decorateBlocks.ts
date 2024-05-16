@@ -1,6 +1,6 @@
 /**
  * Decorate blocks with classes and data attributes.
- * @param main - Html main element
+ * @param {HTMLElement} main - Html main element
  */
 export function decorateBlocks(main: HTMLElement) {
   main.querySelectorAll<HTMLDivElement>('div.section > div > div').forEach((block) => {

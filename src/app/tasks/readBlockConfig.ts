@@ -35,7 +35,9 @@ export function readBlockConfig(block: Element): Record<string, any> {
           } else {
             value = ps.map((p) => p.textContent);
           }
-        } else value = row.children[1].textContent;
+        } else {
+          value = row.children[1].textContent;
+        }
         config[name] = value;
       }
     }

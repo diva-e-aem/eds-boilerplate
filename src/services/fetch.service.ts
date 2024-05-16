@@ -1,6 +1,7 @@
+import { DebuggerService } from '@kluntje/services';
+
 import { getUrlForEndpoint } from '../app/utils/getUrlForEndpoint';
 import { RuntimeCache } from '../utils/RuntimeCache';
-import { DebuggerService } from '@kluntje/services';
 
 export interface FetchServiceCacheOptions {
   cacheType?: 'runtime'; // 'local' | 'session' | "request" can be added later

@@ -1,5 +1,5 @@
 import { html, render, TemplateResult } from 'lit';
-import { getChildNodeText } from 'Utils/getChildNodeText.ts';
+import { getChildNodeText } from 'Utils/getChildNodeText.ts'; // eslint-disable-line import/order
 
 /**
  * These are the imported components for the block.
@@ -33,7 +33,8 @@ enum blockRows {
 /**
  * The template function is used to generate the markup for your block and
  * respond to the arguments coming from your table/block.
- * @param {HelloWorldArgs}
+ * @param {HelloWorldArgs} message
+ * @returns {TemplateResult}
  */
 const template = ({ message }: HelloWorldArgs): TemplateResult => {
   return html`<div class="container">

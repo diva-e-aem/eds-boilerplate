@@ -2,11 +2,11 @@ import { getLocation } from './getLocation';
 import * as isSidekickLibraryActive from './isSidekickLibraryActive'; // Importing it as a module
 
 describe('getLocation', () => {
-  let previousWindow = window;
+  const previousWindow = window;
 
   afterEach(() => {
     jest.restoreAllMocks();
-    window = previousWindow;
+    window = previousWindow; // eslint-disable-line no-global-assign
   });
 
   it('should return window.location when Sidekick Library is not active', () => {
