@@ -20,7 +20,7 @@ class PlaceholderService {
         throw new Error(errorMessage);
       }
 
-      return placeholderRecord!.Text;
+      return placeholderRecord.Text;
     } catch (error) {
       DebuggerService.error('PlaceholderService: Error fetching placeholder data:', error);
       throw error;
