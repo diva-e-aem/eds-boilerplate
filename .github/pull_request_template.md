@@ -4,5 +4,13 @@ Fix #<gh-issue-id>
 
 Test URLs:
 
-- Before: https://develop--eds-boilerplate--diva-e.hlx.live/
-- After: https://<branch>--eds-boilerplate--diva-e.hlx.page/
+- Before: https://develop--eds-boilerplate--diva-e.hlx.live/ <!-- On dev to main its main -->
+- After: https://<branch>--eds-boilerplate--diva-e.hlx.page/ <!-- change <branch> to the branch name  -->
+
+**Checklist:**
+- [ ] Tests added/passed
+- [ ] Documentation updated
+- [ ] PSI Checks passed
+- [ ] Test environment works as expected
+- [ ] New Block/Feature/Component works on test environment
+- [ ] Code reviewed 
