@@ -11,9 +11,7 @@ module.exports = {
     project: './tsconfig.json',
     tsconfigRootDir: './',
   },
-  plugins: ['@typescript-eslint', 'html', 'prettier'],
   rules: {
-    'prettier/prettier': 'error',
     'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
     'max-len': [
