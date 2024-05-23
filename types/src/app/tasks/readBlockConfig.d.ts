@@ -1,1 +1,1 @@
-export declare function readBlockConfig(block: Element): Record<string, any>;
+export declare function readBlockConfig(block: Element): Record<string, string | string[]>;

@@ -13,6 +13,6 @@ import './hello-world.scss';
 /**
  * Each block has an exported default function. It receives the raw block
  * provided by EDS and is used to extract the arguments from it.
- * @param {HTMLImageElement} block The raw block element provided by EDS.
+ * @param {HTMLElement} block The raw block element provided by EDS.
  */
-export default function (block: HTMLImageElement): void;
+export default function (block: HTMLElement): void;
