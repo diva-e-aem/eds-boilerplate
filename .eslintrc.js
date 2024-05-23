@@ -1,22 +1,11 @@
 module.exports = {
   extends: ['@pro-vision/eslint-config-pv/typescript', '@pro-vision/eslint-config-pv/prettier'],
   rules: {
-    'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
     'import/extensions': 'off',
     'one-var': 'off',
-    'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
-    'no-native-reassign': 'off',
-    'no-async-promise-executor': 'off',
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-unsafe-assignment': 'off',
-    '@typescript-eslint/no-unsafe-return': 'off',
-    '@typescript-eslint/no-misused-promises': 'off',
-    '@typescript-eslint/no-floating-promises': 'off',
-    '@typescript-eslint/no-unsafe-enum-comparison': 'off',
     '@typescript-eslint/no-inferrable-types': 'off',
-    '@typescript-eslint/unbound-method': 'off',
   },
 };

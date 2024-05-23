@@ -11,7 +11,6 @@ export default function setupHlxObj(mainScriptPath = '/dist/main/main.js') {
     try {
       [window.hlx.codeBasePath] = new URL(scriptEl.src).pathname.split(mainScriptPath);
     } catch (error) {
-      // eslint-disable-next-line no-console
       DebuggerService.log('setupHlxObj: Could not set codeBasePath.', error);
     }
   }

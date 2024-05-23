@@ -6,7 +6,7 @@ describe('getHref', () => {
 
   afterEach(() => {
     jest.restoreAllMocks();
-    window = previousWindow; // eslint-disable-line no-global-assign
+    window = previousWindow; // eslint-disable-line no-global-assign, no-native-reassign
   });
 
   it('returns window location href when Sidekick Library is not active', () => {

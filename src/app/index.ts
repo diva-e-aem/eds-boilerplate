@@ -130,7 +130,8 @@ class HLX {
   }
 
   private async loadEagerPromise(): Promise<void> {
-    const loadEagerTask: Promise<void> = new Promise(async (resolve) => {
+    // eslint-disable-next-line no-async-promise-executor, @typescript-eslint/no-misused-promises
+    const loadEagerTask = new Promise<void>(async (resolve) => {
       try {
         const main = document.querySelector('main') as HTMLElement;
         decorateButtons(main);
@@ -160,6 +161,7 @@ class HLX {
   }
 
   private async loadLazyPromise(): Promise<void> {
+    // eslint-disable-next-line no-async-promise-executor, @typescript-eslint/no-misused-promises
     const loadLazyTask: Promise<void> = new Promise(async (resolve) => {
       try {
         const {

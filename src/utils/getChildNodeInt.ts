@@ -6,7 +6,6 @@ import { getChildNodeText } from 'Utils/getChildNodeText.ts';
  *
  * @param {HTMLElement} element - The HTML element containing the child node.
  * @param {number} index - The index of the child node whose text content to retrieve.
- // eslint-disable-next-line max-len
  * @returns {number} The integer value of the text content of the specified child node,
  * or 0 if it cannot be converted to an integer.
  */

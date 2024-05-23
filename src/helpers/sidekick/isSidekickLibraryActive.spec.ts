@@ -5,7 +5,7 @@ describe('isSidekickLibraryActive', () => {
 
   afterEach(() => {
     jest.restoreAllMocks();
-    window = previousWindow; // eslint-disable-line no-global-assign
+    window = previousWindow; // eslint-disable-line no-global-assign, no-native-reassign
   });
 
   it('should return false if #main element does not exist', () => {
