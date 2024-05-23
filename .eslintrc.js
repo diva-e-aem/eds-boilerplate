@@ -1,38 +1,14 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-  },
   extends: ['@pro-vision/eslint-config-pv/typescript', '@pro-vision/eslint-config-pv/prettier'],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: './tsconfig.json',
-    tsconfigRootDir: './',
-  },
   rules: {
     'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
-    'max-len': [
-      'error',
-      {
-        code: 120,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true,
-      },
-    ],
-    quotes: ['error', 'single'],
     'import/extensions': 'off',
-    'arrow-parens': ['error', 'always'],
-    'brace-style': ['error', '1tbs'],
     'one-var': 'off',
-    'operator-linebreak': ['error', 'after'],
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     'no-native-reassign': 'off',
     'no-async-promise-executor': 'off',
-    'no-shadow': 'off',
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
