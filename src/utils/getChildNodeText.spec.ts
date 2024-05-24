@@ -1,4 +1,4 @@
-import { getChildNodeText } from 'Utils/getChildNodeText.ts';
+import { getChildNodeText } from 'Utils/getChildNodeText';
 
 describe('getChildNodeText', () => {
   let mockElement: HTMLDivElement | null;

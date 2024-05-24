@@ -1,4 +1,4 @@
-import { getChildNodeText } from 'Utils/getChildNodeText.ts';
+import { getChildNodeText } from 'Utils/getChildNodeText';
 
 /**
  * Retrieves the floating point value of the text content of a specified child node of an HTML element.

@@ -13,7 +13,7 @@ import { loadBlocks } from './tasks/loadBlocks';
 import { transformSection } from './tasks/transformSections';
 import { decorateBlocks } from './tasks/decorateBlocks';
 import { sampleRUM } from './tasks/sampleRUM';
-import { waitForLCP } from './tasks/waitForLCP.ts';
+import { waitForLCP } from './tasks/waitForLCP';
 
 class HLX {
   private beforeEagerCallbacks: Array<() => Promise<void>> = [];

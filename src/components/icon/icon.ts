@@ -4,7 +4,7 @@ import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import { until } from 'lit/directives/until.js';
 import { DebuggerService } from '@kluntje/services';
 
-import { ICONS_PATH } from 'Constants/paths.ts';
+import { ICONS_PATH } from 'Constants/paths';
 
 // Vite runs on build time and finds all svg files in icons directory
 // Since import.meta.glob only accepts literals ICON_PATH cant be used

@@ -1,14 +1,14 @@
 import { html, render, TemplateResult } from 'lit';
 
-import { cleanUpBlock } from 'Utils/cleanUpBlock.ts';
-import { getChildNodeText } from 'Utils/getChildNodeText.ts'; // eslint-disable-line import/order
+import { cleanUpBlock } from 'Utils/cleanUpBlock';
+import { getChildNodeText } from 'Utils/getChildNodeText';
 /**
  * These are the imported components for the block.
  * They need to be imported so that Vite will bundle them as chunks that can be loaded.
  * Otherwise, the component will not be loaded with the block.
  */
-import 'Components/icon/icon.ts';
-import { renderIcon } from 'Components/icon/icon.template.ts';
+import 'Components/icon/icon';
+import { renderIcon } from 'Components/icon/icon.template';
 
 /**
  * These are the imported styles for the block.

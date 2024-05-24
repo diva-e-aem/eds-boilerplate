@@ -1,9 +1,9 @@
 import { DebuggerService } from '@kluntje/services';
 
-import { SheetsResponse } from 'Types/sheetResponse.types.ts';
-import { Placeholder } from 'Types/siteMap.types.ts';
+import { SheetsResponse } from 'Types/sheetResponse.types';
+import { Placeholder } from 'Types/siteMap.types';
 
-import FetchService, { FetchServiceOptions } from './fetch.service.ts';
+import FetchService, { FetchServiceOptions } from './fetch.service';
 
 class PlaceholderService {
   public async getPlaceHolder(key: string): Promise<string> {

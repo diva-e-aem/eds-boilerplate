@@ -1,5 +1,5 @@
-import './components/icon/icon.ts';
-import { initHLXApp } from './app/init.ts';
+import './components/icon/icon';
+import { initHLXApp } from './app/init';
 
 initHLXApp();
 

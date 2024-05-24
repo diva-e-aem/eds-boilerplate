@@ -1,4 +1,4 @@
-import { getChildNodeFloat } from 'Utils/getChildNodeFloat.ts';
+import { getChildNodeFloat } from 'Utils/getChildNodeFloat';
 
 describe('getChildNodeFloat', () => {
   let mockElement: HTMLDivElement | null;

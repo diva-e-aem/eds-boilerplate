@@ -21,7 +21,14 @@ module.exports = {
       },
     ],
     'prefer-arrow-callback': 'off',
-    'import/extensions': 'off',
+    'import/extensions': [
+      2,
+      'always',
+      {
+        '': 'never',
+        ts: 'never',
+      },
+    ],
     'one-var': 'off',
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/explicit-function-return-type': 'off',

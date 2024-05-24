@@ -1,4 +1,4 @@
-import HLX from './index.ts';
+import HLX from './index';
 
 const READY_STATES = {
   interactive: 'interactive',
