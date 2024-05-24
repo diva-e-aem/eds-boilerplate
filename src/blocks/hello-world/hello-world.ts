@@ -1,12 +1,14 @@
 import { html, render, TemplateResult } from 'lit';
-import { getChildNodeText } from 'Utils/getChildNodeText.ts'; // eslint-disable-line import/order
 
+import { cleanUpBlock } from 'Utils/cleanUpBlock.ts';
+import { getChildNodeText } from 'Utils/getChildNodeText.ts'; // eslint-disable-line import/order
 /**
  * These are the imported components for the block.
  * They need to be imported so that Vite will bundle them as chunks that can be loaded.
  * Otherwise, the component will not be loaded with the block.
  */
 import 'Components/icon/icon.ts';
+import { renderIcon } from 'Components/icon/icon.template.ts';
 
 /**
  * These are the imported styles for the block.
@@ -14,8 +16,6 @@ import 'Components/icon/icon.ts';
  * Otherwise, the styles would not be built into the dist directory.
  */
 import './hello-world.scss';
-import { renderIcon } from 'Components/icon/icon.template.ts';
-import { cleanUpBlock } from 'Utils/cleanUpBlock.ts';
 
 interface HelloWorldArgs {
   message: string;

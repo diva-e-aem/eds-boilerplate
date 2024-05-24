@@ -1,4 +1,5 @@
 import { DebuggerService } from '@kluntje/services';
+
 import type { BlockModule } from 'Types/BlockModule.types';
 
 import { BlockMapping } from '../app.types';

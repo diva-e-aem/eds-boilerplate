@@ -1,5 +1,6 @@
-import { isSidekickLibraryActive } from 'Helpers/sidekick/isSidekickLibraryActive';
 import { DebuggerService } from '@kluntje/services';
+
+import { isSidekickLibraryActive } from 'Helpers/sidekick/isSidekickLibraryActive';
 
 import { decorateTemplateAndTheme } from './tasks/decorateTemplateAndTheme';
 import { decorateButtons } from './tasks/decorateButtons';

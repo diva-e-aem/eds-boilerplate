@@ -1,6 +1,25 @@
 module.exports = {
   extends: ['@pro-vision/eslint-config-pv/typescript', '@pro-vision/eslint-config-pv/prettier'],
   rules: {
+    'import/order': [
+      'error',
+      {
+        'newlines-between': 'always',
+        pathGroups: [
+          {
+            pattern: '{Blocks,Components,Directives,Services,Helpers,Constants,Types,Utils}/**/*',
+            group: 'internal',
+          },
+        ],
+        pathGroupsExcludedImportTypes: [],
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          ['index', 'sibling', 'parent']
+        ],
+      },
+    ],
     'prefer-arrow-callback': 'off',
     'import/extensions': 'off',
     'one-var': 'off',

@@ -1,5 +1,6 @@
-import { getLocation } from 'Helpers/sidekick/getLocation';
 import { DebuggerService } from '@kluntje/services';
+
+import { getLocation } from 'Helpers/sidekick/getLocation';
 
 import { loadCSS } from './loadCSS';
 import { config } from '../../../config';
