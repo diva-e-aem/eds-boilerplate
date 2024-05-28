@@ -98,18 +98,17 @@ jobs:
       - name: Setup git user
         run: |
           git config --global user.name "EDS CI/CD"
-          git config --global user.email "eds-ci@diva-e.com"    
+          git config --global user.email "eds-ci@diva-e.com"
 
       - name: Add dist
         run: |
           git add -f ./dist
-          git add -f ./types
 
       - name: Check if dist directory has changed
         id: check-dist-changes
         run: |
           before_commit="$github.event.before"
-          
+
           if git diff --quiet HEAD "$before_commit" -- ./dist; then
           echo "No changes detected in the dist directory."
           else
