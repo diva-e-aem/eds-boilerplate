@@ -50,12 +50,12 @@ Parameters:
 
 Examples:
 
-const button = extractSidekickLibraryId(document.querySelector('a'));
+const cta = extractSidekickLibraryId(document.querySelector('a'));
 <a
- href="${button.href}"
- data-library-id="${ifDefined(button.id)}"
- contenteditable="${ifDefined(button.id ? true : undefined)}">
-   ${button.text}
+ href="${cta.href}"
+ data-library-id="${ifDefined(cta.dataLibraryId)}"
+ contenteditable="${ifDefined(cta.dataLibraryId ? true : undefined)}">
+   ${cta.content}
 </a>
 
 
@@ -115,7 +115,7 @@ Represents the constructed Element.
 | ---------- | ---------- |
 | `SidekickElement` | `{
   dataLibraryId?: string;
-  innerHTML: string;
+  content: string;
   href?: string;
 }` |
 

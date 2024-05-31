@@ -7,7 +7,7 @@ describe('extractSidekickLibraryId', () => {
   beforeEach(() => {
     expected = {
       dataLibraryId: undefined,
-      innerHTML: '',
+      content: new DocumentFragment(),
       href: '',
     };
   });
@@ -17,15 +17,16 @@ describe('extractSidekickLibraryId', () => {
     expect(result).toEqual(expected);
   });
 
-  test('extracts innerHTML correctly', () => {
+  test('extracts content correctly', () => {
     const element = document.createElement('div');
     const innerHTML = '<p>Hello, World!</p>';
 
     element.innerHTML = innerHTML;
-    expected.innerHTML = innerHTML;
 
     const result = extractSidekickLibraryId(element);
-    expect(result).toEqual(expected);
+    const target = document.createElement('div');
+    target.append(result.content);
+    expect(target.innerHTML).toEqual(innerHTML);
   });
 
   test('extracts href attribute correctly for anchor elements', () => {
