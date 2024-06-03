@@ -1,7 +1,6 @@
 import { Directive, directive } from 'lit/directive.js';
 import { AttributePart, nothing } from 'lit';
-
-import { SidekickElement } from 'Helpers/sidekick/extractSidekickLibraryId';
+import type { SidekickElement } from 'Helpers/sidekick/extractSidekickLibraryId';
 import { isSidekickLibraryActive } from 'Helpers/sidekick//isSidekickLibraryActive';
 
 /**
@@ -21,18 +20,18 @@ class SidekickLibraryId extends Directive {
    * Update method called when the directive is updated.
    * @param {AttributePart} part - The attribute part to be updated.
    * @param {unknown[]} props - Array of properties passed to the directive.
-   * @returns {symbol} - Returns the result of the render function.
+   * @returns {typeof nothing} - Returns the result of the render function.
    */
   update(part: AttributePart, props: unknown[]): typeof nothing {
     this.part = part;
-    const sidekickElement = props[0] as SidekickElement;
-    return this.render(sidekickElement);
+    const SidekickElement = props[0] as SidekickElement;
+    return this.render(SidekickElement);
   }
 
   /**
    * Render method for managing Sidekick Library attributes.
    * @param {SidekickElement} sidekickElement - Information about the Sidekick Library.
-   * @returns {symbol} - Returns the result of the render operation.
+   * @returns {typeof nothing} - Returns the result of the render operation.
    */
   render(sidekickElement: SidekickElement): typeof nothing {
     if (!isSidekickLibraryActive()) return nothing;
