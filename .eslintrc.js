@@ -1,26 +1,37 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-  },
-  extends: ['plugin:prettier/recommended'],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
-  plugins: ['@typescript-eslint', 'html', 'prettier'],
+  extends: ['@pro-vision/eslint-config-pv/typescript', '@pro-vision/eslint-config-pv/prettier'],
   rules: {
-    'prettier/prettier': 'error',
-    'arrow-body-style': 'off',
-    'prefer-arrow-callback': 'off',
-    'max-len': [
+    'import/order': [
       'error',
       {
-        code: 120,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true,
+        'newlines-between': 'always',
+        pathGroups: [
+          {
+            pattern: '{Blocks,Components,Directives,Services,Helpers,Constants,Types,Utils}/**/*',
+            group: 'internal',
+          },
+        ],
+        pathGroupsExcludedImportTypes: [],
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          ['index', 'sibling', 'parent']
+        ],
       },
     ],
+    'prefer-arrow-callback': 'off',
+    'import/extensions': [
+      2,
+      'always',
+      {
+        '': 'never',
+        ts: 'never',
+      },
+    ],
+    'one-var': 'off',
+    '@typescript-eslint/no-shadow': 'error',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-inferrable-types': 'off',
   },
 };

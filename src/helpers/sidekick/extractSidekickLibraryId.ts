@@ -1,4 +1,4 @@
-import { isSidekickLibraryActive } from './isSidekickLibraryActive.ts';
+import { isSidekickLibraryActive } from './isSidekickLibraryActive';
 
 /**
  * Represents the constructed Element.

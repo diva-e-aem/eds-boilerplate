@@ -2,8 +2,8 @@ import { BlockMapping } from '../app.types';
 
 /**
  * Collect all blocks in a section.
- * @param section - The section to collect the blocks from.
- * @returns BlockMapping[]
+ * @param {HTMLElement} section - The section to collect the blocks from.
+ * @returns {BlockMapping[]}
  * @example
  * const blocks = collectBlocks(section);
  * console.log(blocks);
@@ -15,7 +15,7 @@ export function collectBlocks(section: HTMLElement): BlockMapping[] {
 
   blocksElements.forEach((block: HTMLDivElement) => {
     blockMap.push({
-      name: block.dataset['blockName'] as string,
+      name: block.dataset.blockName as string,
       element: block,
     });
   });
