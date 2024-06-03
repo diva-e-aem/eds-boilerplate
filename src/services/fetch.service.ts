@@ -1,6 +1,7 @@
+import { DebuggerService } from '@kluntje/services';
+
 import { getUrlForEndpoint } from '../app/utils/getUrlForEndpoint';
 import { RuntimeCache } from '../utils/RuntimeCache';
-import { DebuggerService } from '@kluntje/services';
 
 export interface FetchServiceCacheOptions {
   cacheType?: 'runtime'; // 'local' | 'session' | "request" can be added later
@@ -17,10 +18,12 @@ class FetchService {
   private runtimeCache = new RuntimeCache();
 
   public fetchJson<T>(endpoint: string, options: FetchServiceOptions = {}): Promise<T> {
+    // eslint-disable-next-line @typescript-eslint/unbound-method -- `getResponseJSON` does not access `this`
     return this.fetchData(getUrlForEndpoint(endpoint).href, options, this.getResponseJSON<T>);
   }
 
   public fetchText(endpoint: string, options: FetchServiceOptions = {}): Promise<string> {
+    // eslint-disable-next-line @typescript-eslint/unbound-method -- `getResponseText` does not access `this`
     return this.fetchData(getUrlForEndpoint(endpoint).href, options, this.getResponseText);
   }
 
@@ -57,7 +60,7 @@ class FetchService {
 
   private async getResponseJSON<T>(response: Response): Promise<T> {
     const responseClone = response.clone();
-    const responseJson = await responseClone.json();
+    const responseJson = (await responseClone.json()) as T;
     return responseJson;
   }
 
