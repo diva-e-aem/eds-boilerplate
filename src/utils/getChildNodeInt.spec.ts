@@ -1,4 +1,4 @@
-import { getChildNodeInt } from 'Utils/getChildNodeInt.ts'; // Replace 'yourFileName' with the actual file path
+import { getChildNodeInt } from 'Utils/getChildNodeInt'; // Replace 'yourFileName' with the actual file path
 
 describe('getChildNodeInt', () => {
   let mockElement: HTMLDivElement | null;

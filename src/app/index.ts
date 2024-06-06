@@ -1,17 +1,19 @@
+import { DebuggerService } from '@kluntje/services';
+
+import { isSidekickLibraryActive } from 'Helpers/sidekick/isSidekickLibraryActive';
+
 import { decorateTemplateAndTheme } from './tasks/decorateTemplateAndTheme';
 import { decorateButtons } from './tasks/decorateButtons';
 import { setDocLanguage } from './tasks/setDocLanguage';
 import { loadFonts } from './tasks/loadFonts';
 import { initSampleRUM } from './tasks/initSampleRUM';
-import { DebuggerService } from '@kluntje/services';
 import { loadCSS } from './tasks/loadCSS';
-import { isSidekickLibraryActive } from 'Helpers/sidekick/isSidekickLibraryActive';
 import { config } from '../../config';
 import { loadBlocks } from './tasks/loadBlocks';
 import { transformSection } from './tasks/transformSections';
 import { decorateBlocks } from './tasks/decorateBlocks';
 import { sampleRUM } from './tasks/sampleRUM';
-import { waitForLCP } from './tasks/waitForLCP.ts';
+import { waitForLCP } from './tasks/waitForLCP';
 
 class HLX {
   private beforeEagerCallbacks: Array<() => Promise<void>> = [];
@@ -129,7 +131,8 @@ class HLX {
   }
 
   private async loadEagerPromise(): Promise<void> {
-    const loadEagerTask: Promise<void> = new Promise(async (resolve) => {
+    // eslint-disable-next-line no-async-promise-executor, @typescript-eslint/no-misused-promises
+    const loadEagerTask = new Promise<void>(async (resolve) => {
       try {
         const main = document.querySelector('main') as HTMLElement;
         decorateButtons(main);
@@ -159,6 +162,7 @@ class HLX {
   }
 
   private async loadLazyPromise(): Promise<void> {
+    // eslint-disable-next-line no-async-promise-executor, @typescript-eslint/no-misused-promises
     const loadLazyTask: Promise<void> = new Promise(async (resolve) => {
       try {
         const {

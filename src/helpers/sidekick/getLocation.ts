@@ -1,4 +1,4 @@
-import { isSidekickLibraryActive } from './isSidekickLibraryActive.ts';
+import { isSidekickLibraryActive } from './isSidekickLibraryActive';
 
 /**
  * Returns the true origin of the current page in the browser.

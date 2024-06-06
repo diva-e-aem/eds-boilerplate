@@ -1,7 +1,9 @@
 import { DebuggerService } from '@kluntje/services';
-import FetchService, { FetchServiceOptions } from './fetch.service.ts';
-import { SheetsResponse } from 'Types/sheetResponse.types.ts';
-import { Placeholder } from 'Types/siteMap.types.ts';
+
+import { SheetsResponse } from 'Types/sheetResponse.types';
+import { Placeholder } from 'Types/siteMap.types';
+
+import FetchService, { FetchServiceOptions } from './fetch.service';
 
 class PlaceholderService {
   public async getPlaceHolder(key: string): Promise<string> {
@@ -19,7 +21,7 @@ class PlaceholderService {
         throw new Error(errorMessage);
       }
 
-      return placeholderRecord!.Text;
+      return placeholderRecord.Text;
     } catch (error) {
       DebuggerService.error('PlaceholderService: Error fetching placeholder data:', error);
       throw error;

@@ -1,7 +1,9 @@
+import { DebuggerService } from '@kluntje/services';
+
 import { getLocation } from 'Helpers/sidekick/getLocation';
+
 import { loadCSS } from './loadCSS';
 import { config } from '../../../config';
-import { DebuggerService } from '@kluntje/services';
 
 export async function loadFonts(): Promise<void> {
   const { fontsCssPath } = config;

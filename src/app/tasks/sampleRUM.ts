@@ -1,3 +1,4 @@
+/* eslint-disable -- Adobe code */
 /**
  * log RUM if part of the sample.
  * @param {string} checkpoint identifies the checkpoint in funnel
