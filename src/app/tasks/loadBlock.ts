@@ -6,8 +6,8 @@ import { showSection } from './showSection';
 
 /**
  * Load the block modules and styles for a section and show the section.
- * @param section - The section to load the block modules and styles for.
- * @returns Promise<void>
+ * @param {HTMLElement} section - The section to load the block modules and styles for.
+ * @returns {Promise<void>}
  */
 export async function loadBlock(section: HTMLElement) {
   const sectionsBlocks: BlockMapping[] = collectBlocks(section);
@@ -17,9 +17,12 @@ export async function loadBlock(section: HTMLElement) {
     return;
   }
 
+  const blockPromises: Promise<[void, void]>[] = [];
+
   for (const block of sectionsBlocks) {
-    Promise.all([loadBlockModules(block), loadBlockStyles(block)]);
+    blockPromises.push(Promise.all([loadBlockModules(block), loadBlockStyles(block)]));
   }
 
+  await Promise.all(blockPromises);
   showSection(section);
 }

@@ -8,6 +8,7 @@ export function initSampleRUM() {
   window.addEventListener('load', () => sampleRUM('load'));
 
   window.addEventListener('unhandledrejection', (event) => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- this is Adobe code
     sampleRUM('error', { source: event.reason.sourceURL, target: event.reason.line });
   });
 

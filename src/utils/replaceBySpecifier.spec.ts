@@ -1,4 +1,4 @@
-import { replaceBySpecifier } from './replaceBySpecifier';
+import { replaceBySpecifier } from 'Utils/replaceBySpecifier';
 
 describe('replaceBySpecifier', () => {
   let input: string;

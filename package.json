@@ -7,12 +7,14 @@
     "aemUp": "aem up",
     "build": "tsc && vite build",
     "build:watch": "run-p tsc:watch vite:watch",
+    "build:doc": "ts-node  -O '{\"module\": \"commonjs\"}' ./tools/doc/generate.ts",
     "lint:js": "eslint 'src/**/!(*-toc).{js,json,ts}'",
     "lint:js:fix": "eslint --fix 'src/**/!(*-toc).{js,json,ts}'",
     "lint:css": "stylelint src/**/*.scss",
     "lint:css:fix": "stylelint --fix src/**/*.scss",
     "lint": "npm run lint:js",
     "lint:fix": "npm run lint:js",
+    "new": "pv-create-component --config tools/create-component/config.js",
     "start": "npm-run-all --parallel build:watch aemUp",
     "tsc:watch": "tsc -w",
     "vite": "vite",
@@ -35,10 +37,13 @@
   },
   "homepage": "https://github.com/diva-e/eds-boilerplate#readme",
   "devDependencies": {
+    "@adobe/aem-cli": "^16.3.15",
     "@babel/core": "7.23.7",
     "@babel/eslint-parser": "7.23.3",
-    "@types/node": "^20.11.21",
     "@happy-dom/jest-environment": "^13.6.2",
+    "@pro-vision/eslint-config-pv": "^4.0.0",
+    "@pro-vision/stylelint-config-pv": "^4.0.0",
+    "@pro-vision/pv-create-component": "^0.2.0",
     "@types/jest": "^29.5.12",
     "@typescript-eslint/eslint-plugin": "6.20.0",
     "@typescript-eslint/parser": "6.20.0",
@@ -59,9 +64,10 @@
     "stylelint-config-recommended-scss": "^14.0.0",
     "stylelint-prettier": "^5.0.0",
     "stylelint-scss": "^6.1.0",
-    "ts-node": "^10.9.2",
     "ts-jest": "^29.1.2",
-    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2",
+    "tsdoc-markdown": "^0.6.0",
+    "typescript": "5.3.3",
     "vite": "5.0.12"
   },
   "dependencies": {
@@ -70,7 +76,7 @@
     "lit": "3.1.1"
   },
   "engines": {
-    "node": ">=18",
-    "npm": ">10.2"
+    "node": ">=18.0.0",
+    "npm": ">10.2.0"
   }
 }

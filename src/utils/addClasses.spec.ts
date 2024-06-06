@@ -1,5 +1,5 @@
-import { addClasses } from './addClasses';
-import * as toClassNameModule from './toClassName';
+import { addClasses } from 'Utils/addClasses';
+import * as toClassNameModule from 'Utils/toClassName';
 
 describe('addClasses', () => {
   let element: HTMLElement;
@@ -7,7 +7,7 @@ describe('addClasses', () => {
   const anotherTestClass = 'another-test';
   const lastTestClass = 'last-test';
   const classesToAdd = `${testClass}, ${anotherTestClass}, ${lastTestClass}`;
-  const toClassName = jest.fn((value) => value);
+  const toClassName = jest.fn<string, [string]>((value) => value);
 
   beforeEach(() => {
     element = document.createElement('div');

@@ -1,4 +1,4 @@
-import { toClassName } from './toClassName';
+import { toClassName } from 'Utils/toClassName';
 
 /**
  * Adds CSS classes to an HTML element.

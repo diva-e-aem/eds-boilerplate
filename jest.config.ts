@@ -24,6 +24,7 @@ const jestConfig: JestConfigWithTsJest = {
     '^Helpers/(.*)$': '<rootDir>/src/helpers/$1',
     '^Constants/(.*)$': '<rootDir>/src/constants/$1',
     '^Types/(.*)$': '<rootDir>/src/types/$1',
+    '^Utils/(.*)$': '<rootDir>/src/utils/$1'
   },
 };
 

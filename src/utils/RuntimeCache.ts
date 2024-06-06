@@ -1,8 +1,8 @@
 export class RuntimeCache {
-  private runtimeCache: Map<string, any> = new Map();
+  private runtimeCache: Map<string, unknown> = new Map();
 
   public get<T>(key: string): T | undefined {
-    return this.runtimeCache.get(key);
+    return this.runtimeCache.get(key) as T | undefined;
   }
 
   public set<T>(key: string, value: T): void {

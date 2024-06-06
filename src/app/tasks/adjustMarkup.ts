@@ -7,7 +7,7 @@ import { decorateImages } from './decorateImages';
  * It decorates the images in the default content by calling the 'decorateImages' function.
  * It sets the 'data-section-status' attribute to 'initialized'.
  * It hides the section element.
- * @param section - The section element to adjust.
+ * @param {HTMLDivElement} section - The section element to adjust.
  */
 export function adjustMarkup(section: HTMLDivElement) {
   const wrappers: HTMLDivElement[] = [];
