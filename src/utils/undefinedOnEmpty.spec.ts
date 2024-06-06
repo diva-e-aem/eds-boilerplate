@@ -1,4 +1,4 @@
-import { undefinedOnEmpty } from './undefinedOnEmpty';
+import { undefinedOnEmpty } from 'Utils/undefinedOnEmpty';
 
 describe('undefinedOnEmpty', () => {
   test('returns undefined for an empty string', () => {

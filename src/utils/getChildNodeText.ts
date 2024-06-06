@@ -5,7 +5,7 @@
  * @returns {string} The text content of the child node, trimmed of leading and trailing whitespace,
  * or an empty string if the child node or its text content is unavailable.
  */
-export const getChildNodeText = (element: HTMLElement, index: number): string => {
+export function getChildNodeText(element: HTMLElement, index: number): string {
   const childNode = element.children[index];
   return childNode.textContent?.trim() ?? '';
-};
+}

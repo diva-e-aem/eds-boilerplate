@@ -1,0 +1,122 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  install-and-cache-deps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node version from .nvmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: install-and-cache-deps
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+
+      - name: Lint project
+        run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    needs: install-and-cache-deps
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+
+      - name: Run unit tests
+        run: npm run test:ci
+
+  build-doc:
+      runs-on: ubuntu-latest
+      needs: install-and-cache-deps
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
+
+        - name: Cache NPM dependencies
+          uses: actions/cache@v4
+          with:
+            path: node_modules
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: ${{ runner.os }}-node-
+
+        - name: Build doc
+          run: npm run build:doc
+
+  build-and-commit-dist:
+    runs-on: ubuntu-latest
+    needs: [lint, test, build-doc]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+
+      - name: Build project
+        run: npm run build
+
+      - name: Setup git user
+        run: |
+          git config --global user.name "EDS CI/CD"
+          git config --global user.email "eds-ci@diva-e.com"
+
+      - name: Add dist
+        run: |
+          git add -f ./dist
+
+      - name: Check if dist directory has changed
+        id: check-dist-changes
+        run: |
+          before_commit="$github.event.before"
+
+          if git diff --quiet HEAD "$before_commit" -- ./dist; then
+          echo "No changes detected in the dist directory."
+          else
+          echo "dist_changed=true" >> "$GITHUB_ENV"
+          fi
+
+      - name: Commit and push dist
+        if: steps.check-dist-changes.outputs.dist_changed == 'true'
+        run: |
+          git commit -m "Rebuild dist from CI"
+          git push

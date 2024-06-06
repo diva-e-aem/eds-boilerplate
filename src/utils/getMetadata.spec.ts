@@ -1,4 +1,4 @@
-import { getMetadata } from './getMetadata';
+import { getMetadata } from 'Utils/getMetadata';
 
 describe('getMetadata', () => {
   beforeEach(() => {
