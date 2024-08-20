@@ -4,8 +4,8 @@ Fix #<gh-issue-id>
 
 Test URLs:
 
-- Before: https://develop--eds-boilerplate--diva-e.hlx.live/ <!-- On dev to main its main -->
-- After: https://<branch>--eds-boilerplate--diva-e.hlx.page/ <!-- change <branch> to the branch name  -->
+- Before: https://develop--eds-boilerplate--diva-e.aem.live/ <!-- On dev to main its main -->
+- After: https://<branch>--eds-boilerplate--diva-e.aem.page/ <!-- change <branch> to the branch name  -->
 
 **Checklist:**
 - [ ] Tests added/passed

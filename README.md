@@ -10,8 +10,8 @@ This is our Edge Delivery Services boilerplate.
 - [Documentation](#documentation)
 
 ## Environments
-- Preview: [https://<branch>--<your_repository>--<github_user>.hlx.page/](https://main--eds-editorial--ifahrentholz.hlx.page/)
-- Live: [https://<branch>--<your_repository>--<github_user>.hlx.live/](https://main--eds-editorial--ifahrentholz.hlx.live/)
+- Preview: [https://<branch>--<your_repository>--<github_user>.aem.page/](https://main--eds-editorial--ifahrentholz.aem.page/)
+- Live: [https://<branch>--<your_repository>--<github_user>.aem.live/](https://main--eds-editorial--ifahrentholz.aem.live/)
 
 ### Prerequisites
 
@@ -53,7 +53,7 @@ This is our Edge Delivery Services boilerplate.
       cd <repo>
       npm start
     ```
-    - Use Git to push code changes to your preview (https://<branch>--<repo>--<owner>.hlx.page/) and production (https://<branch>--<repo>--<owner>.hlx.live/) sites.
+    - Use Git to push code changes to your preview (https://<branch>--<repo>--<owner>.aem.page/) and production (https://<branch>--<repo>--<owner>.aem.live/) sites.
 
 ## Linting
 
@@ -67,9 +67,9 @@ For more information, please refer to the <a href="https://github.com/ifahrentho
 
 # Preview URLs
 ## Main
-Live: https://main--eds-boilerplate--diva-e.hlx.live/
-Preview: https://main--eds-boilerplate--diva-e.hlx.page/
+Live: https://main--eds-boilerplate--diva-e.aem.live/
+Preview: https://main--eds-boilerplate--diva-e.aem.page/
 
 ## Develop
-Live: https://develop--eds-boilerplate--diva-e.hlx.live/
-Preview: https://develop--eds-boilerplate--diva-e.hlx.page/
+Live: https://develop--eds-boilerplate--diva-e.aem.live/
+Preview: https://develop--eds-boilerplate--diva-e.aem.page/
