@@ -7,8 +7,8 @@ import { processSectionMetaData } from './processSectionMetaData';
  * It processes the metadata of each section by calling the 'processSectionMetaData' function.
  * @param {HTMLElement} main - The main element to transform.
  */
-export function transformSection(main: HTMLElement) {
-  main.querySelectorAll<HTMLDivElement>(':scope > div').forEach((section) => {
+export function transformSections(main: HTMLElement | null) {
+  main?.querySelectorAll<HTMLDivElement>(':scope > div').forEach((section) => {
     adjustMarkup(section);
     processSectionMetaData(section);
   });

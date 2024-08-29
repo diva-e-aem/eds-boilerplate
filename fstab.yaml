@@ -1,2 +1,5 @@
 mountpoints:
-  /: https://drive.google.com/drive/u/0/folders/1Eyh1YtzqPOsZHm4thi0NgK_fedQJErcT
+  /:
+    url: https://author-p140018-e1429411.adobeaemcloud.com/bin/franklin.delivery/diva-e-aem/xwalk-boilerplate/main
+    type: 'markup'
+    suffix: '.html'

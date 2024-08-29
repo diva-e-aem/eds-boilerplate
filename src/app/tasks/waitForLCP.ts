@@ -3,38 +3,47 @@ import { loadBlockModules } from './loadBlockModules';
 import { loadBlockStyles } from './loadBlockStyles';
 import { config } from '../../../config';
 import { showSection } from './showSection';
-import { LcpCandidate } from '../app.types';
 
 /**
  * Wait for the Largest Contentful Paint (LCP) candidate to be loaded.
  * This function will load the modules and styles for the first section after the LCP candidate.
- * @returns {Promise<void>}
+ * @returns {Promise<Event | void>}
  */
-export async function waitForLCP() {
+export async function waitForLCP(): Promise<Event | void> {
   const firstSection: HTMLElement | null = document.querySelector('.section');
+  const lcpCandidate = document.querySelector<HTMLImageElement>('main img');
   const { lcpBlocks } = config;
 
   if (firstSection) {
     const blocks = collectBlocks(firstSection);
-    const blockPromises = blocks.map(async (block) => {
-      const hasLCPBlock = lcpBlocks?.includes(block.name);
-      if (hasLCPBlock) await Promise.all([loadBlockModules(block), loadBlockStyles(block)]);
-    });
+    const blockPromises: Promise<void>[] = [];
+
+    for (const block of blocks) {
+      if (lcpBlocks?.includes(block.name)) {
+        blockPromises.push(loadBlockModules(block), loadBlockStyles(block));
+      }
+      if (blockPromises.length < 1 && blocks.length > 0) {
+        const firstBlock = blocks[0];
+        blockPromises.push(loadBlockModules(firstBlock), loadBlockStyles(firstBlock));
+      }
+    }
 
     await Promise.all(blockPromises);
     showSection(firstSection);
   }
 
   // @ts-ignore
-  document.body.style.display = null;
-  const lcpCandidate = document.querySelector<LcpCandidate>('main img');
+  if (document.body.style.display === 'none') {
+    // @ts-ignore
+    document.body.style.display = null;
+  }
 
-  await new Promise<void>((resolve) => {
+  await new Promise<Event | void>((resolve) => {
     if (lcpCandidate && !lcpCandidate.complete) {
       lcpCandidate.setAttribute('loading', 'eager');
       lcpCandidate.setAttribute('fetchpriority', 'high');
-      lcpCandidate.addEventListener('load', () => resolve());
-      lcpCandidate.addEventListener('error', () => resolve());
+      lcpCandidate.addEventListener('load', (ev: Event) => resolve(ev));
+      lcpCandidate.addEventListener('error', (ev: Event) => resolve(ev));
     } else {
       resolve();
     }

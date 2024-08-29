@@ -1,0 +1,38 @@
+$primary-color: #2ecc71;
+$secondary-color: #3498db;
+$background-color: #f0f0f0;
+$container-color: #fff;
+
+.helloworld-container {
+  background-color: $background-color;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: $container-color;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+}
+
+.hello-world {
+  margin-bottom: 30px;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 10px;
+    font-size: 36px;
+    color: $primary-color;
+  }
+
+  p {
+    font-size: 18px;
+    color: $secondary-color;
+  }
+
+  .message {
+    margin-top: 20px;
+    font-size: 24px;
+  }
+}

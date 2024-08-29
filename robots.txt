@@ -6,7 +6,7 @@
 #
 # Q: Why am I'm seeing this robots.txt instead of the one I 
 # configured?
-# A: You are visiting from *.aem.page or *.aem.live - in order 
+# A: You are visiting from *.hlx.page or *.hlx.live - in order 
 # to prevent these sites from showing up in search engines and 
 # giving you a duplicate content penalty on your real site we 
 # exclude all robots 

@@ -1,12 +1,10 @@
 {
-  "project": "Example",
   "plugins": [
     {
-      "id": "library",
-      "title": "Library",
-      "environments": ["edit"],
-      "url": "/tools/sidekick/library.html",
-      "includePaths": ["**.docx**"]
+      "id": "aemedit",
+      "title": "Edit",
+      "environments": ["dev", "preview", "live"],
+      "event": "aemedit"
     }
   ]
 }

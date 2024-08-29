@@ -15,7 +15,8 @@ const jestConfig: JestConfigWithTsJest = {
   coverageReporters: ['text'],
   moduleFileExtensions: ['js', 'ts'],
   roots: ['<rootDir>/src'],
-  testEnvironment: '@happy-dom/jest-environment',
+  testEnvironment: 'jsdom',
+  setupFiles: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
     '^Blocks/(.*)$': '<rootDir>/src/blocks/$1',
     '^Components/(.*)$': '<rootDir>/src/components/$1',
@@ -24,7 +25,7 @@ const jestConfig: JestConfigWithTsJest = {
     '^Helpers/(.*)$': '<rootDir>/src/helpers/$1',
     '^Constants/(.*)$': '<rootDir>/src/constants/$1',
     '^Types/(.*)$': '<rootDir>/src/types/$1',
-    '^Utils/(.*)$': '<rootDir>/src/utils/$1'
+    '^Utils/(.*)$': '<rootDir>/src/utils/$1',
   },
 };
 

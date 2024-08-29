@@ -1,0 +1,1 @@
+.columns>div{display:flex;flex-direction:column}.columns img{width:100%}.columns>div>div{order:1}.columns>div>.columns-img-col{order:0}.columns>div>.columns-img-col img{display:block}@media (width >= 900px){.columns>div{flex-direction:unset;gap:32px;align-items:center}.columns>div>div{flex:1;order:unset}}

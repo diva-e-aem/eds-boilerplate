@@ -2,8 +2,8 @@
  * Decorates paragraphs containing a single link as buttons.
  * @param {Element} element container element
  */
-export function decorateButtons(element: Element) {
-  element.querySelectorAll('a').forEach((a) => {
+export function decorateButtons(element: Element | null) {
+  element?.querySelectorAll('a').forEach((a) => {
     a.title = a.title || a.textContent!;
     if (a.href !== a.textContent) {
       const up = a.parentElement!;

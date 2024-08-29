@@ -1,0 +1,34 @@
+main .hero-container > div {
+  max-width: unset;
+}
+
+main .hero-container {
+  padding: 0;
+}
+
+.hero {
+  position: relative;
+  min-height: 300px;
+  padding: 32px;
+}
+
+.hero h1 {
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  color: white;
+}
+
+.hero picture {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  box-sizing: border-box;
+  object-fit: cover;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
