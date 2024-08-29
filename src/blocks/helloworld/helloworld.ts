@@ -15,7 +15,7 @@ import { renderIcon } from 'Components/icon/icon.template';
  * They need to be imported so that Vite will bundle them as chunks that can be loaded.
  * Otherwise, the styles would not be built into the dist directory.
  */
-import './hello-world.scss';
+import './helloworld.scss';
 
 interface HelloWorldArgs {
   message: string;

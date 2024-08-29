@@ -25,18 +25,13 @@
     "paths": {
       "Blocks/*": ["./src/blocks/*"],
       "Components/*": ["./src/components/*"],
-      "Directives/*" :["./src/directives/*"],
+      "Directives/*": ["./src/directives/*"],
       "Services/*": ["./src/services/*"],
       "Helpers/*": ["./src/helpers/*"],
       "Constants/*": ["./src/constants/*"],
       "Types/*": ["./src/types/*"],
-      "Utils/*": ["./src/utils/*"]
-    }
+      "Utils/*": ["./src/utils/*"],
+    },
   },
-  "include": [
-    "./*.ts",
-    "scripts/**/*.ts",
-    "src/**/*.ts",
-    "src/**/*.json"
-  ],
+  "include": ["./*.ts", "scripts/**/*.ts", "src/**/*.ts", "src/**/*.json"],
 }

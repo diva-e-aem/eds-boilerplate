@@ -9,6 +9,7 @@ export interface Config {
   lazyStylesCssPath?: string;
   sidekickLibraryStylesScssPath?: string;
   sidekickLibraryStylesCssPath?: string;
+  editorTsPath: string;
   lcpBlocks?: string[];
 }
 
@@ -23,5 +24,6 @@ export const config: Config = {
   lazyStylesCssPath: './dist/lazyStyles/lazyStyles.css',
   sidekickLibraryStylesScssPath: './src/styles/sass/sidekick-library-styles.scss',
   sidekickLibraryStylesCssPath: './dist/sidekickLibraryStyles/sidekickLibraryStyles.css',
+  editorTsPath: './src/app/editor/editor-support.ts',
   lcpBlocks: [],
 };

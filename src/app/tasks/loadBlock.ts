@@ -9,7 +9,7 @@ import { showSection } from './showSection';
  * @param {HTMLElement} section - The section to load the block modules and styles for.
  * @returns {Promise<void>}
  */
-export async function loadBlock(section: HTMLElement) {
+export async function loadBlock(section: HTMLElement): Promise<void> {
   const sectionsBlocks: BlockMapping[] = collectBlocks(section);
 
   if (!sectionsBlocks.length) {

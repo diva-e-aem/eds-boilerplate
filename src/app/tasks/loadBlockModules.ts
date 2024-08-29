@@ -10,6 +10,7 @@ enum Status {
   loading = 'loading',
   loaded = 'loaded',
   error = 'error',
+  initialized = 'initialized',
 }
 
 /**
@@ -20,7 +21,7 @@ enum Status {
 export async function loadBlockModules(block: BlockMapping): Promise<void> {
   const blockStatus = (block.element.dataset.blockStatus as Status | undefined) ?? Status.unloaded;
 
-  if (blockStatus === Status.unloaded) {
+  if (blockStatus === Status.unloaded || blockStatus === Status.initialized) {
     try {
       block.element.dataset.blockStatus = Status.loading;
       const { href } = getUrlForEndpoint(`dist/${block.name}/${block.name}.js`);

@@ -1,4 +1,4 @@
-import { toClassName } from 'Utils/toClassName';
+import { toClassName } from '../../utils/toClassName';
 
 /*
   This function reads the configuration of a block from the HTML file
