@@ -5,7 +5,14 @@
       "id": "library",
       "title": "Library",
       "environments": ["edit"],
-      "url": "/tools/sidekick/library.html",
+      "url": "/sidekick/library.html",
+      "includePaths": ["**.docx**"]
+    },
+    {
+      "id": "tags",
+      "title": "Tags",
+      "environments": ["edit"],
+      "url": "/sidekick/plugins/tags/tags.js",
       "includePaths": ["**.docx**"]
     }
   ]
