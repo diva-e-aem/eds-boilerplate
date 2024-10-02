@@ -1,3 +1,4 @@
+// config.ts
 export interface Config {
   mainTsPath: string;
   mainScssPath: string;
@@ -10,6 +11,7 @@ export interface Config {
   sidekickLibraryStylesScssPath?: string;
   sidekickLibraryStylesCssPath?: string;
   lcpBlocks?: string[];
+  blocksPaths: string[];
 }
 
 export const config: Config = {
@@ -24,4 +26,5 @@ export const config: Config = {
   sidekickLibraryStylesScssPath: './src/styles/sass/sidekick-library-styles.scss',
   sidekickLibraryStylesCssPath: './dist/sidekickLibraryStyles/sidekickLibraryStyles.css',
   lcpBlocks: [],
+  blocksPaths: ['src/blocks'],
 };

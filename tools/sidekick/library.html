@@ -30,21 +30,14 @@
       type="module"
       src="https://www.aem.live/tools/sidekick/library/index.js"
     ></script>
-    <script type="module" src="/tools/sidekick/plugins/tags/tags.js"></script>
 
 
     <script>
       const library = document.createElement('sidekick-library')
       library.config = {
         base: '/tools/sidekick/library.json',
-        plugins: {
-        tags: {
-          src: '/sidekick/plugins/tags/tags.js',
-          foo: 'bar' 
-        }
+        tags: '/dist/sidekickPlugin/sidekickPlugin.js',
       }
-      }
-
       document.body.prepend(library)
     </script>
   </body>
