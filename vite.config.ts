@@ -18,11 +18,16 @@ export default defineConfig(({ command, mode }) => {
   const inputOptions: InputOption = {
     main: resolve(__dirname, mainTsPath),
     styles: resolve(__dirname, mainScssPath),
+
     ...blocksEntries,
     ...pluginEntries,
-    sidekickPlugin: resolve(__dirname, '/tools/sidekick/plugins/tags/tags.ts'),
-
+    //sidekickPlugin: resolve(__dirname, '/tools/sidekick/plugins/tags/tags.ts'),
   };
+
+  const dynamicPluginEntries = generateFileEntries('tools/sidekick/plugins', 'ts');
+  for (const [name, path] of Object.entries(dynamicPluginEntries)) {
+    inputOptions[`sidekickPlugin/${name}`] = path;
+  }
 
   if (fontsScssPath) inputOptions.fonts = resolve(__dirname, fontsScssPath);
   if (lazyStylesScssPath) inputOptions.lazyStyles = resolve(__dirname, lazyStylesScssPath);

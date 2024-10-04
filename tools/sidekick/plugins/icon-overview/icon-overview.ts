@@ -1,47 +1,37 @@
 /*
  * Copyright 2023 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
-
+ * Licensed under the Apache License, Version 2.0
  */
+
 // @ts-ignore import module
 import { PLUGIN_EVENTS } from 'https://main--franklin-library-host--dylandepass.hlx.live/tools/sidekick/library/events/events.js';
+import { renderIcon } from '../../../../src/components/icon/icon.template.ts';
+import { IconName } from '../../../../src/icons.types.ts';
 
-const selectedTags: string[] = [];
+const selectedIcons: IconName[] = [];
 
 function getSelectedLabel(): string {
-  return selectedTags.length > 0
-    ? `${selectedTags.length} tag${selectedTags.length > 1 ? 's' : ''} selected`
-    : 'No tags selected';
+  return selectedIcons.length > 0
+    ? `${selectedIcons.length} icon${selectedIcons.length > 1 ? 's' : ''} selected`
+    : 'No icons selected';
 }
 
-interface TagItem {
-  tag: string;
-}
-
-function getFilteredTags(data: TagItem[], query: string): TagItem[] {
+function getFilteredIcons(data: IconName[], query: string): IconName[] {
   if (!query) {
     return data;
   }
-
-  return data.filter((item) => item.tag.toLowerCase().includes(query.toLowerCase()));
+  return data.filter((icon) => icon.toLowerCase().includes(query.toLowerCase()));
 }
 
-export async function decorate(container: HTMLElement, data: TagItem[], query: string): Promise<void> {
+export async function decorate(container: HTMLElement, data: IconName[], query: string): Promise<void> {
   const createMenuItems = (): string => {
-    const filteredTags = getFilteredTags(data, query);
-    return filteredTags
-      .map((item) => {
-        const isSelected = selectedTags.includes(item.tag);
+    const filteredIcons = getFilteredIcons(data, query);
+    return filteredIcons
+      .map((icon) => {
+        const isSelected = selectedIcons.includes(icon);
         return `
-        <sp-menu-item value="${item.tag}" ${isSelected ? 'selected' : ''}>
-          ${item.tag}
+        <sp-menu-item value="${icon}" ${isSelected ? 'selected' : ''}>
+          ${renderIcon(icon)} ${icon}
         </sp-menu-item>
       `;
       })
@@ -53,12 +43,12 @@ export async function decorate(container: HTMLElement, data: TagItem[], query: s
     const { value, selected } = target;
 
     if (selected) {
-      const index = selectedTags.indexOf(value);
+      const index = selectedIcons.indexOf(value as IconName);
       if (index > -1) {
-        selectedTags.splice(index, 1);
+        selectedIcons.splice(index, 1);
       }
     } else {
-      selectedTags.push(value);
+      selectedIcons.push(value as IconName);
     }
 
     const selectedLabel = container.querySelector('.selectedLabel');
@@ -68,10 +58,10 @@ export async function decorate(container: HTMLElement, data: TagItem[], query: s
   };
 
   const handleCopyButtonClick = (): void => {
-    navigator.clipboard.writeText(selectedTags.join(', '));
+    navigator.clipboard.writeText(selectedIcons.join(', '));
     container.dispatchEvent(
       new CustomEvent(PLUGIN_EVENTS.TOAST, {
-        detail: { message: 'Copied Tags' },
+        detail: { message: 'Copied Icons' },
       })
     );
   };
@@ -79,9 +69,9 @@ export async function decorate(container: HTMLElement, data: TagItem[], query: s
   const menuItems = createMenuItems();
   const sp = `
     <sp-menu
-      label="Select tags"
+      label="Select icons"
       selects="multiple"
-      data-testid="taxonomy"
+      data-testid="icons-overview"
     >
       ${menuItems}
     </sp-menu>
@@ -111,7 +101,6 @@ export async function decorate(container: HTMLElement, data: TagItem[], query: s
 }
 
 export default {
-  title: 'Tags',
+  title: 'Icon Overview',
   searchEnabled: true,
 };
-

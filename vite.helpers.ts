@@ -3,32 +3,31 @@ import { existsSync, readdirSync, writeFileSync } from 'fs';
 import { execSync } from 'child_process';
 import { config } from './config';
 
-const getBlockEntry = (name: string, fileType: string): string | null => {
-  const filePath = resolve(__dirname, `src/blocks/${name}/${name}.${fileType}`);
+const getEntry = (baseDir: string, name: string, fileType: string): string | null => {
+  const filePath = resolve(__dirname, `${baseDir}/${name}.${fileType}`);
   return existsSync(filePath) ? filePath : null;
 };
-
 export const generateFileEntries = (baseDir: string, fileType: string) => {
   const entries: Record<string, string> = {};
+  const names = getNamesFromFolder(baseDir);
 
-  const names = getBlockNamesFromSrcFolder(baseDir);
   names.forEach((name) => {
-    const entry = getBlockEntry(name, fileType);
+    const entry = getEntry(baseDir, name, fileType);
     if (entry) {
       entries[name] = entry;
     }
   });
-
   return entries;
 };
 
-const getBlockNamesFromSrcFolder = (baseDir: string): string[] => {
-  const pathToBlocks = resolve(__dirname, baseDir);
+const getNamesFromFolder = (baseDir: string): string[] => {
+  const pathToFolder = resolve(__dirname, baseDir);
 
   try {
-    const names = readdirSync(pathToBlocks);
+    const names = readdirSync(pathToFolder);
     return names;
   } catch (error) {
+    console.error(`Error reading directory ${pathToFolder}:`, error);
     return [];
   }
 };
