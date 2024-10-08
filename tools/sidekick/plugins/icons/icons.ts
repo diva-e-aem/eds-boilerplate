@@ -37,7 +37,7 @@ export async function decorate(container: HTMLElement): Promise<void> {
       iconNames.map(async ({ name, path }) => {
         const svgIcon = await loadSVGIcon(path);
         return html`
-          <div class="icons_tit">
+          <div class="icons_title">
             <div class="icon" title="${name}">
               ${unsafeHTML(svgIcon)}
               <span>${name}</span>
