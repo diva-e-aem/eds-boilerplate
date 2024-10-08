@@ -4,9 +4,10 @@ import { execSync } from 'child_process';
 import { config } from './config';
 
 const getEntry = (baseDir: string, name: string, fileType: string): string | null => {
-  const filePath = resolve(__dirname, `${baseDir}/${name}.${fileType}`);
+  const filePath = resolve(__dirname, `${baseDir}/${name}/${name}.${fileType}`);
   return existsSync(filePath) ? filePath : null;
 };
+
 export const generateFileEntries = (baseDir: string, fileType: string) => {
   const entries: Record<string, string> = {};
   const names = getNamesFromFolder(baseDir);

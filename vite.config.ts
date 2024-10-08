@@ -9,25 +9,21 @@ const isProd = process.env.NODE_ENV === 'production';
 
 // @ts-ignore:next line
 export default defineConfig(({ command, mode }) => {
-  const { mainTsPath, mainScssPath, fontsScssPath, lazyStylesScssPath, sidekickLibraryStylesScssPath } = config;
+  const { mainTsPath, mainScssPath, fontsScssPath, lazyStylesScssPath, sidekickLibraryStylesScssPath} = config;
+  
   const blocksEntries = generateFileEntries('src/blocks', 'ts');
   const pluginEntries = generateFileEntries('tools/sidekick/plugins', 'ts');
+  
 
   generateIconNameType();
 
   const inputOptions: InputOption = {
     main: resolve(__dirname, mainTsPath),
     styles: resolve(__dirname, mainScssPath),
-
     ...blocksEntries,
     ...pluginEntries,
-    //sidekickPlugin: resolve(__dirname, '/tools/sidekick/plugins/tags/tags.ts'),
+   //sidekickPlugin: resolve(__dirname, 'tools/sidekick/plugins/tags/tags.ts'),
   };
-
-  const dynamicPluginEntries = generateFileEntries('tools/sidekick/plugins', 'ts');
-  for (const [name, path] of Object.entries(dynamicPluginEntries)) {
-    inputOptions[`sidekickPlugin/${name}`] = path;
-  }
 
   if (fontsScssPath) inputOptions.fonts = resolve(__dirname, fontsScssPath);
   if (lazyStylesScssPath) inputOptions.lazyStyles = resolve(__dirname, lazyStylesScssPath);
@@ -40,9 +36,6 @@ export default defineConfig(({ command, mode }) => {
       devSourcemap: true,
       preprocessorOptions: {
         // Path to mixins, variables, and other necessary files for transpiling SCSS: '../path/to/styles.scss'
-        //  scss: {
-        //    additionalData: `@import 'src/styles/<your file path>';`,
-        //  },
       },
     },
     resolve: {
