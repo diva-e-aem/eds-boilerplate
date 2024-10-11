@@ -3,34 +3,34 @@ import { existsSync, readdirSync, writeFileSync } from 'fs';
 import { execSync } from 'child_process';
 import { config } from './config';
 
-const getBlockEntry = (blockName: string, fileType: string): string | null => {
-  const filePath = resolve(__dirname, `src/blocks/${blockName}/${blockName}.${fileType}`);
+const getEntry = (baseDir: string, name: string, fileType: string): string | null => {
+  const filePath = resolve(__dirname, `${baseDir}/${name}/${name}.${fileType}`);
   return existsSync(filePath) ? filePath : null;
 };
 
-const getTsEntry = (blockName: string): Record<string, string> | null => {
-  const tsPath = getBlockEntry(blockName, 'ts');
-  return tsPath !== null ? { [blockName]: tsPath } : null;
-};
+export const generateFileEntries = (baseDir: string, fileType: string) => {
+  const entries: Record<string, string> = {};
+  const names = getNamesFromFolder(baseDir);
 
-const getBlockNamesFromSrcFolder = (): string[] => {
-  const blocksPath = resolve(__dirname, 'src/blocks');
-  try {
-    return readdirSync(blocksPath);
-  } catch (error) {
-    console.error(`Failed to read directory at ${blocksPath}`, error);
-    return [];
-  }
-};
-
-export const generateBlockEntries = () => {
-  const blockNames = getBlockNamesFromSrcFolder();
-  let entries = {};
-  blockNames.forEach((blockName) => {
-    const tsEntry = getTsEntry(blockName);
-    entries = { ...entries, ...tsEntry };
+  names.forEach((name) => {
+    const entry = getEntry(baseDir, name, fileType);
+    if (entry) {
+      entries[name] = entry;
+    }
   });
   return entries;
+};
+
+const getNamesFromFolder = (baseDir: string): string[] => {
+  const pathToFolder = resolve(__dirname, baseDir);
+
+  try {
+    const names = readdirSync(pathToFolder);
+    return names;
+  } catch (error) {
+    console.error(`Error reading directory ${pathToFolder}:`, error);
+    return [];
+  }
 };
 
 export const generateIconNameType = () => {

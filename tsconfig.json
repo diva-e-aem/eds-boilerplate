@@ -37,6 +37,6 @@
     "./*.ts",
     "scripts/**/*.ts",
     "src/**/*.ts",
-    "src/**/*.json"
+    "src/**/*.json",
   ],
 }

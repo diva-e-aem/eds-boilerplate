@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import minifyHTML from 'rollup-plugin-minify-html-literals';
-import { generateBlockEntries, generateIconNameType } from './vite.helpers';
+import { generateFileEntries, generateIconNameType } from './vite.helpers';
 import { config } from './config';
 import { resolve } from 'path';
 import { InputOption } from 'rollup';
@@ -9,14 +9,20 @@ const isProd = process.env.NODE_ENV === 'production';
 
 // @ts-ignore:next line
 export default defineConfig(({ command, mode }) => {
-  const { mainTsPath, mainScssPath, fontsScssPath, lazyStylesScssPath, sidekickLibraryStylesScssPath } = config;
-  const blocksEntries = generateBlockEntries();
+  const { mainTsPath, mainScssPath, fontsScssPath, lazyStylesScssPath, sidekickLibraryStylesScssPath} = config;
+  
+  const blocksEntries = generateFileEntries('src/blocks', 'ts');
+  const pluginEntries = generateFileEntries('tools/sidekick/plugins', 'ts');
+  
+
   generateIconNameType();
 
   const inputOptions: InputOption = {
     main: resolve(__dirname, mainTsPath),
     styles: resolve(__dirname, mainScssPath),
     ...blocksEntries,
+    ...pluginEntries,
+   //sidekickPlugin: resolve(__dirname, 'tools/sidekick/plugins/tags/tags.ts'),
   };
 
   if (fontsScssPath) inputOptions.fonts = resolve(__dirname, fontsScssPath);
@@ -30,9 +36,6 @@ export default defineConfig(({ command, mode }) => {
       devSourcemap: true,
       preprocessorOptions: {
         // Path to mixins, variables, and other necessary files for transpiling SCSS: '../path/to/styles.scss'
-        //  scss: {
-        //    additionalData: `@import 'src/styles/<your file path>';`,
-        //  },
       },
     },
     resolve: {
