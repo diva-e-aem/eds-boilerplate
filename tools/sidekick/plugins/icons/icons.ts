@@ -8,7 +8,6 @@ interface ImportMeta {
   glob: (pattern: string) => Record<string, () => Promise<unknown>>;
 }
 
-
 const fetchIconNames = async (): Promise<{ name: string; path: string }[]> => {
   const iconFiles = import.meta.glob('/public/icons/*.svg');
   return Object.keys(iconFiles).map((iconPath) => ({
@@ -16,7 +15,6 @@ const fetchIconNames = async (): Promise<{ name: string; path: string }[]> => {
     path: iconPath,
   }));
 };
-
 
 const loadSVGIcon = async (iconPath: string): Promise<string> => {
   try {
@@ -29,7 +27,6 @@ const loadSVGIcon = async (iconPath: string): Promise<string> => {
   }
   return '';
 };
-
 export async function decorate(container: HTMLElement): Promise<void> {
   const renderDynamicIcons = async () => {
     const iconNames = await fetchIconNames();
@@ -46,12 +43,9 @@ export async function decorate(container: HTMLElement): Promise<void> {
         `;
       })
     );
-
     return html` <div class="icons-container dynamic-icons">${dynamicIcons}</div> `;
   };
-
   render(await renderDynamicIcons(), container);
-
   container.dispatchEvent(
     new CustomEvent(PLUGIN_EVENTS.TOAST, {
       detail: { message: 'Icons rendered successfully!' },

@@ -1,7 +1,7 @@
-import{PLUGIN_EVENTS as i}from"https://main--franklin-library-host--dylandepass.hlx.live/tools/sidekick/library/events/events.js";function r(t,s){return s?t.filter(n=>n.tag.toLowerCase().includes(s.toLowerCase())):t}const l=t=>new Promise(s=>{const n=new Image;n.src=`/public/icons/${t}.svg`,n.onload=()=>s(!0),n.onerror=()=>s(!1)}),d=async(t,s)=>{const a=r(t,s).map(async c=>{const o=await l(c.tag)?`/public/icons/${c.tag}.svg`:"";return`
+import{PLUGIN_EVENTS as a}from"https://main--franklin-library-host--dylandepass.hlx.live/tools/sidekick/library/events/events.js";function r(s,n){return n?s.filter(c=>c.icon.toLowerCase().includes(n.toLowerCase())):s}const l=s=>new Promise(n=>{const c=new Image;c.src=`/public/icons/${s}.svg`,c.onload=()=>n(!0),c.onerror=()=>n(!1)}),d=async(s,n)=>{const o=r(s,n).map(async t=>{const i=await l(t.icon)?`/public/icons/${t.icon}.svg`:"";return`
       <div class="icons-item">
-        ${o?`<img src="${o}" alt="${c.tag} icon" class="tag-icon" />`:""}
-        <span class="icon-title">${c.tag}</span>
+        ${i?`<img src="${i}" alt="${t.icon} icon" class="icon-icon" />`:""}
+        <span class="icon-title">${t.icon}</span>
       </div>
-    `});return(await Promise.all(a)).join("")};async function m(t,s,n){const a=await d(s,n),e=document.createElement("div");e.classList.add("container-icon"),e.innerHTML=a,t.append(e),document.dispatchEvent(new CustomEvent(i.TOAST,{detail:{message:"Icons loaded successfully!"}}))}const p={title:"Icons",searchEnabled:!0};export{m as decorate,p as default};
+    `});return(await Promise.all(o)).join("")};async function p(s,n,c){const o=await d(n,c),e=document.createElement("div");e.classList.add("container-icon"),e.innerHTML=o,s.append(e),document.dispatchEvent(new CustomEvent(a.TOAST,{detail:{message:"Icons loaded successfully!"}}))}const f={title:"Iconnn",searchEnabled:!0};export{p as decorate,f as default};
 //# sourceMappingURL=iconnn.js.map
